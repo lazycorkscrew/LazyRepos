@@ -1,0 +1,8 @@
+c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\bin\Debug\EPAM_Tasks.exe.config
+c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\bin\Debug\EPAM_Tasks.exe
+c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\bin\Debug\EPAM_Tasks.pdb
+c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\obj\Debug\EPAM_Tasks.csprojResolveAssemblyReference.cache
+c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\obj\Debug\EPAM_Tasks.exe
+c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\obj\Debug\EPAM_Tasks.pdb
+c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\bin\Debug\Tasks.dll
+c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\bin\Debug\Tasks.pdb
