@@ -34,9 +34,9 @@ namespace EPAM_Tasks
             ShowArray(massiv);
 
             Console.WriteLine("\nУдаляем третий элемент:");
-            massiv = Tasks.Remove(massiv, 2, 2);
+            massiv = Tasks.Remove(massiv, 2, 1);
             ShowArray(massiv);
-
+            
             Console.WriteLine("\n\nСледующее задание >>");
             Console.ReadKey();
 
@@ -66,15 +66,22 @@ namespace EPAM_Tasks
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n\nЗадание 3 - Поиск в строке слов, встречающихся только один раз.");
             Console.ForegroundColor = ConsoleColor.Gray;
-            string str = "один два три два пять пять четыре двоа";
+            string str = "один два три, два,.пять пять четыре двоа?";
             Console.WriteLine(str);
+
+
+            string[] strs = Tasks.MySplit(str, new char[] {' ', ',', '.', '?'});
+            foreach (string s in strs)
+                Console.Write($"\n{s}");
+            Console.WriteLine("\n");
+
             string[] words = Tasks.DistinctStrings(str);
             foreach (string word in words)
             {
                 Console.Write($"{word} ");
             }
 
-            Console.WriteLine("\nСледующее задание >>");
+            Console.WriteLine("\n\nСледующее задание >>");
             Console.ReadKey();
 
             Console.ForegroundColor = ConsoleColor.White;

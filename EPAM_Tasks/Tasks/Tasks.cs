@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+//using System.Linq;
 
 namespace EPAM_Tasks
 {
@@ -31,7 +30,7 @@ namespace EPAM_Tasks
 
         //Задание 2
         //Бинарный поиск в массиве. При успешном поиске возвращает индекс первого вхождения
-        //Если ничего не нашёл = возвращает -1
+        //Если ничего не нашёл - возвращает -1
         //Вместо этой функции можно использовать Array.BinarySearch<int>(int [] array, int value);
         public static int Find(int[] array, int value)
         {
@@ -77,13 +76,15 @@ namespace EPAM_Tasks
         //Задание 3
         public static string[] DistinctStrings(string bigString)
         {
-            string[] words = bigString.Split(new char[] { ' ', '.', ',', '?', '!', ':', ';', '-' }, StringSplitOptions.RemoveEmptyEntries);
-            List<string> distinctWords = new List<string>();
+            //string[] words = bigString.Split(new char[] { ' ', '.', ',', '?', '!', ':', ';', '-' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = MySplit(bigString, new char[] { ' ', '.', ',', '?', '!', ':', ';', '-' });
+
+            string [] distinctWords = new string[0];
 
             for (int i = 0; i < words.Length; i++)
             {
                 int found = -1;
-                for (int j = 0; j < distinctWords.Count; j++)
+                for (int j = 0; j < distinctWords.Length; j++)
                 {
                     if (words[i] == distinctWords[j])
                     {
@@ -91,10 +92,10 @@ namespace EPAM_Tasks
                         break;
                     }
                 }
-                if (found >= 0) distinctWords.RemoveAt(found);
-                else distinctWords.Add(words[i]);
+                if (found >= 0) distinctWords = Remove(distinctWords, (uint)found, 1);
+                else distinctWords = Add(distinctWords, words[i]);
             }
-            return distinctWords.ToArray();
+            return distinctWords;
         }
 
         //Задание 4
@@ -110,14 +111,10 @@ namespace EPAM_Tasks
             }
         }
 
-
-
         //Задание 5
         public static bool Validate(char[] charsTemp)
         {
             //Создаём массив, содержащий в себе только скобки, без сторонних символов.
-
-
             int capacity = 0;
             for (int i = 0; i < charsTemp.Length; i++)
             {
@@ -139,8 +136,6 @@ namespace EPAM_Tasks
             if (charsArr.Length % 2 != 0)
                 return false;
 
-            //List<char> chars = charsArr.ToList<char>();
-
             //По умолчанию, пустая строка является валидной.
             if (charsArr.Length == 0)
                 return true;
@@ -161,16 +156,11 @@ namespace EPAM_Tasks
                 somethingsDeleted = false;
                 for (uint i = 0; i < chars.Length - 1; i++)
                 {
-                    //Если в списке не осталось больше элементов - то строка валидная.
-                    if (chars.Length == 0)
-                        return true;
-
                     if ((chars[i] == '[' && chars[i + 1] == ']') ||
                         (chars[i] == '(' && chars[i + 1] == ')') ||
                         (chars[i] == '{' && chars[i + 1] == '}'))
                     {
                         chars = Remove(chars, i, 2);
-                        GC.Collect();
                         somethingsDeleted = true;
                         i--;
                     }
@@ -179,8 +169,19 @@ namespace EPAM_Tasks
             return (chars.Length == 0 ? true : false);
         }
 
+        //Функция добавления элемента в конец массива
+        public static T[] Add<T>(T[] array, T value)
+        {
+            T[] newArray = new T[array.Length +1];
+            for (uint i = 0; i < array.Length; i++)
+            {
+                newArray[i] = array[i];
+            }
+            newArray[newArray.Length - 1] = value;
+            return newArray;
+        }
 
-        //Функция удаления элемента массива
+        //Функция удаления элемента из массива
         public static T[] Remove<T>(T[] array, uint index, int count)
         {
             T[] newArray = new T[array.Length - count];
@@ -191,6 +192,91 @@ namespace EPAM_Tasks
                 else newArray[i] = array[i];
             }
             return newArray;
+        }
+
+        //Функция разбиения строки 
+        public static string[] MySplit(string str, char [] separator, bool RemoveEmptyEntries = true)
+        {
+            //Узнаём общее количество разделений.
+            int countSeparators = 0;
+            for(int i = 0; i < str.Length; i++)
+            {
+                for(int j = 0; j < separator.Length; j++)
+                {
+                    if (str[i] == separator[j])
+                        countSeparators++;
+                }
+            }
+
+            //Находим индексы всех разделителей.
+            int[] separatorIndexes = new int[countSeparators];
+            int index = 0;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                for (int j = 0; j < separator.Length; j++)
+                {
+                    if (str[i] == separator[j])
+                    {
+                        separatorIndexes[index] = i;
+                        index++;
+                    }
+                }
+            }
+
+            //Сортируем
+            Sort(separatorIndexes);
+
+            //Обрезаем строку по индексам разделителей
+            int start = 0;
+            int end = 0;
+            index = 0;
+            string[] separated = new string[countSeparators+1];
+            
+            for(int i = 0; i < countSeparators; i++)
+            {
+                if(i == 0)
+                {
+                    start = 0;
+                    end = separatorIndexes[0]-1;
+                }
+                else
+                {
+                    start = separatorIndexes[i-1]+1;
+                    end = separatorIndexes[i]-1;
+                }
+                char[] part = new char[(end-start)+1];
+                int partIndex = 0;
+
+                for(int j = start; j <= end; j++)
+                {
+                    part[partIndex] = str[j];
+                    partIndex++;
+                }
+                
+                    separated[index] = new string(part);
+                    index++;
+            }
+            int finalPartIndex = 0;
+            char[] finalPart = new char[(str.Length - end)-2];
+
+            for (int j = end+2; j < str.Length; j++)
+            {
+                finalPart[finalPartIndex] = str[j];
+                finalPartIndex++;
+            }
+            separated[index] = new string(finalPart);
+
+            for(int i = 0; i < separated.Length; i++)
+            {
+                if (separated[i] == string.Empty)
+                    separated = Remove(separated, (uint)i, 1);
+            }
+
+
+            return separated;
+
+
         }
     }
 }
