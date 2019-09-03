@@ -3,3 +3,8 @@ c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\Tasks\bin\D
 c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\Tasks\bin\Debug\Tasks.pdb
 c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\Tasks\obj\Debug\Tasks.dll
 c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\Tasks\obj\Debug\Tasks.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\Tasks\bin\Debug\Tasks.dll
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\Tasks\bin\Debug\Tasks.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\Tasks\obj\Debug\Tasks.csprojResolveAssemblyReference.cache
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\Tasks\obj\Debug\Tasks.dll
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\Tasks\obj\Debug\Tasks.pdb

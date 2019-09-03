@@ -24,7 +24,6 @@ namespace EPAM_Tasks
             ShowArray(massiv);
 
             //Демонстрация сортировки оригинала.
-
             Console.WriteLine("\nСортируем оригинал:");
             Tasks.Sort(massiv);
             //можно использовать Array.Sort<int>(massiv);

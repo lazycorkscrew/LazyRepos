@@ -1,5 +1,4 @@
 ﻿using System;
-//using System.Linq;
 
 namespace EPAM_Tasks
 {
@@ -74,9 +73,11 @@ namespace EPAM_Tasks
         }
 
         //Задание 3
+        //Я сам не в восторге от того, что происходит в моём коде, но мне пришлось написать свой сплит.
+        //А ведь всё можно было решить гораздо элегантнее... Например, так:
+        //string[] words = bigString.Split(new char[] { ' ', '.', ',', '?', '!', ':', ';', '-' }, StringSplitOptions.RemoveEmptyEntries).Distinct();
         public static string[] DistinctStrings(string bigString)
         {
-            //string[] words = bigString.Split(new char[] { ' ', '.', ',', '?', '!', ':', ';', '-' }, StringSplitOptions.RemoveEmptyEntries);
             string[] words = MySplit(bigString, new char[] { ' ', '.', ',', '?', '!', ':', ';', '-' });
 
             string [] distinctWords = new string[0];
@@ -99,6 +100,7 @@ namespace EPAM_Tasks
         }
 
         //Задание 4
+        //Находим факториал.
         public static ulong Factorial(ushort value)
         {
             {
@@ -112,6 +114,7 @@ namespace EPAM_Tasks
         }
 
         //Задание 5
+        //Проверка на правильную скобочную последовательность.
         public static bool Validate(char[] charsTemp)
         {
             //Создаём массив, содержащий в себе только скобки, без сторонних символов.
@@ -224,10 +227,10 @@ namespace EPAM_Tasks
                 }
             }
 
-            //Сортируем
+            //Сортируем.
             Sort(separatorIndexes);
 
-            //Обрезаем строку по индексам разделителей
+            //Обрезаем строку по индексам разделителей.
             int start = 0;
             int end = 0;
             index = 0;
@@ -272,11 +275,8 @@ namespace EPAM_Tasks
                 if (separated[i] == string.Empty)
                     separated = Remove(separated, (uint)i, 1);
             }
-
-
+            
             return separated;
-
-
         }
     }
 }

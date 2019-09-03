@@ -6,3 +6,11 @@ c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\
 c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\obj\Debug\EPAM_Tasks.pdb
 c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\bin\Debug\Tasks.dll
 c:\users\химик\documents\visual studio 2015\Projects\EPAM_Tasks\EPAM_Tasks\bin\Debug\Tasks.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\EPAM_Tasks\bin\Debug\EPAM_Tasks.exe.config
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\EPAM_Tasks\obj\Debug\EPAM_Tasks.exe
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\EPAM_Tasks\obj\Debug\EPAM_Tasks.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\EPAM_Tasks\bin\Debug\EPAM_Tasks.exe
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\EPAM_Tasks\bin\Debug\EPAM_Tasks.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\EPAM_Tasks\bin\Debug\Tasks.dll
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\EPAM_Tasks\bin\Debug\Tasks.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\EPAM_Tasks\EPAM_Tasks\obj\Debug\EPAM_Tasks.csprojResolveAssemblyReference.cache
