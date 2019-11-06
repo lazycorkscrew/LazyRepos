@@ -48,9 +48,8 @@ namespace EPAM_Tasks
                 try
                 {
                     Console.Write("Введите искомое число: \n > ");
-                    if (Tasks.Find(massiv, Convert.ToInt32(Console.ReadLine())) >= 0)
-                        Console.WriteLine("Нашли");
-                    else Console.WriteLine("не нашли");
+                    Console.WriteLine(Tasks.Find(massiv, Convert.ToInt32(Console.ReadLine())) >= 0 ? "Нашли" : "не нашли");
+                    
                     break;
                 }
                 catch (Exception)
