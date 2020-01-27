@@ -1,0 +1,11 @@
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\bin\Debug\CaptchaRecognizer.exe.config
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\obj\Debug\CaptchaRecognizer.csprojResolveAssemblyReference.cache
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\obj\Debug\CaptchaRecognizer.Form1.resources
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\obj\Debug\CaptchaRecognizer.Properties.Resources.resources
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\obj\Debug\CaptchaRecognizer.csproj.GenerateResource.Cache
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\bin\Debug\CaptchaRecognizer.exe
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\bin\Debug\CaptchaRecognizer.pdb
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\bin\Debug\CaptchaResolver.dll
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\bin\Debug\CaptchaResolver.pdb
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\obj\Debug\CaptchaRecognizer.exe
+C:\Users\Химик\Documents\Visual Studio 2015\Projects\CaptchaRecognizer\CaptchaRecognizer\obj\Debug\CaptchaRecognizer.pdb
