@@ -1,0 +1,6 @@
+C:\Users\Химик\source\repos\MedicalManager\Entities\bin\Debug\Entities.dll
+C:\Users\Химик\source\repos\MedicalManager\Entities\bin\Debug\Entities.pdb
+C:\Users\Химик\source\repos\MedicalManager\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
+C:\Users\Химик\source\repos\MedicalManager\Entities\obj\Debug\Entities.dll
+C:\Users\Химик\source\repos\MedicalManager\Entities\obj\Debug\Entities.pdb
+C:\Users\Химик\source\repos\MedicalManager\Entities\obj\Debug\Entities.csprojAssemblyReference.cache

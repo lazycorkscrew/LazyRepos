@@ -1,0 +1,15 @@
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\BLL.dll
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\BLL.pdb
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\DAL.dll
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\IBLC.dll
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\IDAC.dll
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\DAL.pdb
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\IBLC.pdb
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\IDAC.pdb
+C:\Users\Химик\source\repos\MedicalManager\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Химик\source\repos\MedicalManager\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Химик\source\repos\MedicalManager\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Химик\source\repos\MedicalManager\BLL\obj\Debug\BLL.dll
+C:\Users\Химик\source\repos\MedicalManager\BLL\obj\Debug\BLL.pdb
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\Entities.dll
+C:\Users\Химик\source\repos\MedicalManager\BLL\bin\Debug\Entities.pdb

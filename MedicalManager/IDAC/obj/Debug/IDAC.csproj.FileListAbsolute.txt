@@ -1,0 +1,9 @@
+C:\Users\Химик\source\repos\MedicalManager\IDAC\bin\Debug\IDAC.dll
+C:\Users\Химик\source\repos\MedicalManager\IDAC\bin\Debug\IDAC.pdb
+C:\Users\Химик\source\repos\MedicalManager\IDAC\bin\Debug\Entities.dll
+C:\Users\Химик\source\repos\MedicalManager\IDAC\bin\Debug\Entities.pdb
+C:\Users\Химик\source\repos\MedicalManager\IDAC\obj\Debug\IDAC.csprojAssemblyReference.cache
+C:\Users\Химик\source\repos\MedicalManager\IDAC\obj\Debug\IDAC.csproj.CoreCompileInputs.cache
+C:\Users\Химик\source\repos\MedicalManager\IDAC\obj\Debug\IDAC.csproj.CopyComplete
+C:\Users\Химик\source\repos\MedicalManager\IDAC\obj\Debug\IDAC.dll
+C:\Users\Химик\source\repos\MedicalManager\IDAC\obj\Debug\IDAC.pdb
