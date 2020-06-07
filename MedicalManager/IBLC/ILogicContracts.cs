@@ -52,8 +52,33 @@ namespace MedicalManager.IBLC
 
         bool RejectRegistrationRequest(int requestId, string login, string password);
 
+        bool EditEmployee(string login, string password, int id, string fname, string lname, string patronymic, int role, int departmentId);
+
+        //
         IEnumerable<Analysis> GetAnalysesByTypeId(int typeId);
 
         bool SetConclusionByAnalysisId(int analysisId, string conclusion);
+
+        DiseaseHistory GetHistoryById(int historyId);
+
+        bool UpdateHistoryById(int historyId, string finalDiagnosis, string treatmentPlan);
+
+
+
+        //Электронная почта
+        bool SendMail(string mailto, string caption, string message, string[] attachFiles);
+
+        EmailSettings GetEmailSettings();
+
+        bool SetEmailSettings(EmailSettings emailSettings);
+        //
+
+        string GetReportText(int historyId);
+
+        IEnumerable<EmployeeInfo> GetEmployees();
+
+        Employee GetEmployeeById(int employeeId);
+
+        bool DeleteEmployee(string login, string password, int employeeId);
     }
 }

@@ -11,10 +11,12 @@ namespace MedicalManager.BLL
     internal static class DataAccessProvider
     {
         internal static IDataAccessContracts DBAccessor { get; }
+        internal static IEmailAccessorContracts EmailAccessor { get; }
 
         static DataAccessProvider()
         {
             DBAccessor = new DBAccessor();
+            EmailAccessor = new EmailAccessor();
         }
     }
 }

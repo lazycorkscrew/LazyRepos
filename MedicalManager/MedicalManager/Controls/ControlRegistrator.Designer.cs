@@ -28,33 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxPatients = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkClear = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.listBoxHistories = new System.Windows.Forms.ListBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.textBoxMailTo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonShowReport = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxQuery = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.linkLabelEmailSettings = new System.Windows.Forms.LinkLabel();
+            this.timerBeforeRequest = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -81,7 +84,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.listBoxPatients);
             this.groupBox1.Location = new System.Drawing.Point(614, 3);
             this.groupBox1.Name = "groupBox1";
             this.tableLayoutPanel1.SetRowSpan(this.groupBox1, 3);
@@ -90,18 +93,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Найденные пациенты:";
             // 
-            // listBox1
+            // listBoxPatients
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxPatients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Парамонов Евпатий фёдорович, 6303 228420, 21.05.1980"});
-            this.listBox1.Location = new System.Drawing.Point(6, 16);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(244, 576);
-            this.listBox1.TabIndex = 0;
+            this.listBoxPatients.DisplayMember = "FullInfo";
+            this.listBoxPatients.FormattingEnabled = true;
+            this.listBoxPatients.Location = new System.Drawing.Point(6, 16);
+            this.listBoxPatients.Name = "listBoxPatients";
+            this.listBoxPatients.Size = new System.Drawing.Size(244, 576);
+            this.listBoxPatients.TabIndex = 0;
+            this.listBoxPatients.ValueMember = "Id";
+            this.listBoxPatients.SelectedIndexChanged += new System.EventHandler(this.listBoxPatients_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -141,6 +145,98 @@
             this.panel1.Size = new System.Drawing.Size(590, 458);
             this.panel1.TabIndex = 2;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.tableLayoutPanel2);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(590, 458);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "По истории болезни";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.listBoxHistories, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(584, 439);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // listBoxHistories
+            // 
+            this.listBoxHistories.DisplayMember = "Name";
+            this.listBoxHistories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxHistories.FormattingEnabled = true;
+            this.listBoxHistories.Location = new System.Drawing.Point(3, 3);
+            this.listBoxHistories.Name = "listBoxHistories";
+            this.listBoxHistories.Size = new System.Drawing.Size(286, 433);
+            this.listBoxHistories.TabIndex = 0;
+            this.listBoxHistories.ValueMember = "Id";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.linkLabelEmailSettings);
+            this.panel2.Controls.Add(this.buttonSend);
+            this.panel2.Controls.Add(this.textBoxMailTo);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.buttonShowReport);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(295, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(286, 433);
+            this.panel2.TabIndex = 1;
+            // 
+            // buttonSend
+            // 
+            this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSend.Location = new System.Drawing.Point(6, 71);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(277, 23);
+            this.buttonSend.TabIndex = 3;
+            this.buttonSend.Text = "Отправить";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            // 
+            // textBoxMailTo
+            // 
+            this.textBoxMailTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMailTo.Location = new System.Drawing.Point(6, 45);
+            this.textBoxMailTo.Name = "textBoxMailTo";
+            this.textBoxMailTo.Size = new System.Drawing.Size(277, 20);
+            this.textBoxMailTo.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Электронная почта";
+            // 
+            // buttonShowReport
+            // 
+            this.buttonShowReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonShowReport.Location = new System.Drawing.Point(6, 3);
+            this.buttonShowReport.Name = "buttonShowReport";
+            this.buttonShowReport.Size = new System.Drawing.Size(277, 23);
+            this.buttonShowReport.TabIndex = 0;
+            this.buttonShowReport.Text = "Показать отчёт";
+            this.buttonShowReport.UseVisualStyleBackColor = true;
+            this.buttonShowReport.Click += new System.EventHandler(this.buttonShowReport_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -155,7 +251,7 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.textBoxQuery);
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(605, 51);
@@ -174,15 +270,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Пациент: ";
             // 
-            // textBox1
+            // textBoxQuery
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(68, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(531, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Парамонов";
+            this.textBoxQuery.Location = new System.Drawing.Point(68, 16);
+            this.textBoxQuery.Name = "textBoxQuery";
+            this.textBoxQuery.Size = new System.Drawing.Size(531, 20);
+            this.textBoxQuery.TabIndex = 1;
+            this.textBoxQuery.TextChanged += new System.EventHandler(this.textBoxQuery_TextChanged);
             // 
             // button7
             // 
@@ -194,92 +290,22 @@
             this.button7.Text = "Сохранить";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // linkLabelEmailSettings
             // 
-            this.listBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(3, 3);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(286, 433);
-            this.listBox2.TabIndex = 0;
+            this.linkLabelEmailSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelEmailSettings.AutoSize = true;
+            this.linkLabelEmailSettings.Location = new System.Drawing.Point(120, 420);
+            this.linkLabelEmailSettings.Name = "linkLabelEmailSettings";
+            this.linkLabelEmailSettings.Size = new System.Drawing.Size(163, 13);
+            this.linkLabelEmailSettings.TabIndex = 4;
+            this.linkLabelEmailSettings.TabStop = true;
+            this.linkLabelEmailSettings.Text = "Настройки электронной почты";
+            this.linkLabelEmailSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEmailSettings_LinkClicked);
             // 
-            // groupBox4
+            // timerBeforeRequest
             // 
-            this.groupBox4.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(590, 458);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "По истории болезни";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.listBox2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(584, 439);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(295, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(286, 433);
-            this.panel2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(6, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(277, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Показать отчёт";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Электронная почта";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(6, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(277, 20);
-            this.textBox2.TabIndex = 2;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(6, 71);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(277, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Отправить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.timerBeforeRequest.Interval = 2000;
+            this.timerBeforeRequest.Tick += new System.EventHandler(this.timerBeforeRequest_Tick);
             // 
             // ControlRegistrator
             // 
@@ -293,12 +319,12 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -307,22 +333,24 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxPatients;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.LinkLabel linkClear;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBoxHistories;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxMailTo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonShowReport;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxQuery;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.LinkLabel linkLabelEmailSettings;
+        private System.Windows.Forms.Timer timerBeforeRequest;
     }
 }

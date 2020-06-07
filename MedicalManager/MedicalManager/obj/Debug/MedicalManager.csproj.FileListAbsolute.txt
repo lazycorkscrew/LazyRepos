@@ -58,3 +58,5 @@ C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\MedicalManager\obj
 C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\MedicalManager\obj\Debug\MedicalManager.pdb
 C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\MedicalManager\bin\Debug\DAL.dll.config
 C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\MedicalManager\obj\Debug\MedicalManager.FormSettings.resources
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\MedicalManager\obj\Debug\MedicalManager.FormEmailAuth.resources
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\MedicalManager\obj\Debug\MedicalManager.FormReport.resources

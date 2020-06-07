@@ -150,6 +150,53 @@ namespace MedicalManager.DAL
             }
         }
 
+        public bool DeleteEmployee(string login, string password, int employeeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("DeleteEmployee", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@adminLogin", login);
+                command.Parameters.AddWithValue("@adminPassword", password);
+                command.Parameters.AddWithValue("@id", employeeId);
+                connection.Open();
+                try
+                {
+                    return command.ExecuteNonQuery() == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool EditEmployee(string login, string password, int id, string fname, string lname, string patronymic, int role, int departmentId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("EditEmployee", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@adminLogin", login);
+                command.Parameters.AddWithValue("@adminPassword", password);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@fname", fname);
+                command.Parameters.AddWithValue("@lname", lname);
+                command.Parameters.AddWithValue("@patronymic", patronymic);
+                command.Parameters.AddWithValue("@role", role);
+                command.Parameters.AddWithValue("@departmentId", departmentId);
+                connection.Open();
+                try
+                {
+                    return command.ExecuteNonQuery() == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
         public IEnumerable<Analysis> GetAnalysesByHistoryId(int historyId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -307,6 +354,41 @@ namespace MedicalManager.DAL
             }
         }
 
+        public Employee GetEmployeeById(int employeeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("GetEmployeeById", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@employeeId", employeeId);
+                connection.Open();
+                SqlDataReader reader = null;
+                try
+                {
+                    reader = command.ExecuteReader();
+                }
+                catch (SqlException ex)
+                {
+                    return null;
+                }
+
+                if (reader.Read())
+                {
+                    return new Employee
+                    {
+                        Id = (int)reader["Id"],
+                        Fname = (string)reader["Fname"],
+                        Lname = (string)reader["Lname"],
+                        Patronymic = (string)reader["Patronymic"],
+                        RoleId = (int)reader["Role"],
+                        DepartmentId = (int)reader["DepartmentId"]
+                    };
+                }
+
+                return null;
+            }
+        }
+
         public Employee GetEmployeeByLoginAndPassword(string login, string password)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -343,6 +425,69 @@ namespace MedicalManager.DAL
             }
         }
 
+        public IEnumerable<EmployeeInfo> GetEmployees()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("GetEmployees", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                List<EmployeeInfo> histories = new List<EmployeeInfo>();
+
+                while (reader.Read())
+                {
+                    histories.Add(new EmployeeInfo
+                    {
+                        Id = (int)reader["Id"],
+                        Info = (string)reader["Info"]
+                    });
+                }
+
+                return histories;
+            }
+        }
+
+        public DiseaseHistory GetFullInfoByHistoryId(int historyId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("GetFullInfoByHistoryId", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@historyId", historyId);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                try
+                {
+                    if (reader.Read())
+                    {
+                        return new DiseaseHistory
+                        {
+                            Id = (int)reader["HistoryId"],
+                            PatientId = (int)reader["PatientId"],
+                            Fname = (string)reader["Fname"],
+                            Lname = (string)reader["Lname"],
+                            Patronymic = (string)reader["Patronymic"],
+                            DateBirth = (DateTime)reader["DateBirth"],
+                            Created = (DateTime)reader["HistoryCreated"],
+                            Status = (int)reader["Status"],
+                            StatusText = (string)reader["StatusText"],
+                            Anamnesis = (string)reader["Anamnesis"],
+                            FinalDiagnoses = (string)reader["FinalDiagnosis"],
+                            TreatmentPlan = (string)reader["TreatmentPlan"]
+                        };
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
+
+                return null;
+            }
+        }
+
         public IEnumerable<History> GetHistoriesByUserId(int userId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -365,6 +510,34 @@ namespace MedicalManager.DAL
                 }
 
                 return histories;
+            }
+        }
+
+        public DiseaseHistory GetHistoryById(int historyId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("GetHistoryById", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@historyId", historyId);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new DiseaseHistory
+                    {
+                        Id = (int)reader["Id"],
+                        PatientId = (int)reader["PatientId"],
+                        Created = (DateTime)reader["Created"],
+                        Status = (int)reader["Status"],
+                        Anamnesis = (string)reader["Anamnesis"],
+                        FinalDiagnoses = (string)reader["FinalDiagnosis"],
+                        TreatmentPlan = (string)reader["TreatmentPlan"]
+                    };
+                }
+
+                return null;
             }
         }
 
@@ -441,6 +614,31 @@ namespace MedicalManager.DAL
                 }
 
                 return roles;
+            }
+        }
+
+        public IEnumerable<Symptom> GetSymptomsByHistoryId(int historyId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("GetSymptomsByHistoryId", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@historyId", historyId);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                List<Symptom> symptoms = new List<Symptom>();
+
+                while (reader.Read())
+                {
+                    symptoms.Add(new Symptom
+                    {
+                        Id = (int)reader["Id"],
+                        Name = (string)reader["Name"]
+                    });
+                }
+
+                return symptoms;
             }
         }
 
@@ -570,6 +768,27 @@ namespace MedicalManager.DAL
             catch(Exception ex)
             {
                 return false;
+            }
+        }
+
+        public bool UpdateHistoryById(int historyId, string finalDiagnosis, string treatmentPlan)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("UpdateHistoryById", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@historyId", historyId);
+                command.Parameters.AddWithValue("@finalDiagnosis", finalDiagnosis);
+                command.Parameters.AddWithValue("@treatmentPlan", treatmentPlan);
+                connection.Open();
+                try
+                {
+                    return command.ExecuteNonQuery() == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
             }
         }
     }

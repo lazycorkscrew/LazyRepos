@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelEmployee = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
@@ -38,7 +38,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.labelEmployee);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -46,14 +46,14 @@
             this.panel1.Size = new System.Drawing.Size(985, 34);
             this.panel1.TabIndex = 2;
             // 
-            // label1
+            // labelEmployee
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ФАМИЛИЯ ИМЯ ОТЧЕСТВО";
+            this.labelEmployee.AutoSize = true;
+            this.labelEmployee.Location = new System.Drawing.Point(10, 10);
+            this.labelEmployee.Name = "labelEmployee";
+            this.labelEmployee.Size = new System.Drawing.Size(156, 13);
+            this.labelEmployee.TabIndex = 1;
+            this.labelEmployee.Text = "ФАМИЛИЯ ИМЯ ОТЧЕСТВО";
             // 
             // linkLabel1
             // 
@@ -103,6 +103,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEmployee;
     }
 }

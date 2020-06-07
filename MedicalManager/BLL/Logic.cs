@@ -154,5 +154,96 @@ namespace MedicalManager.BLL
         {
             return DataAccessProvider.DBAccessor.SetConclusionByAnalysisId(analysisId, conclusion);
         }
+
+        public DiseaseHistory GetHistoryById(int historyId)
+        {
+            return DataAccessProvider.DBAccessor.GetHistoryById(historyId);
+        }
+
+        public bool UpdateHistoryById(int historyId, string finalDiagnosis, string treatmentPlan)
+        {
+            return DataAccessProvider.DBAccessor.UpdateHistoryById(historyId, finalDiagnosis, treatmentPlan);
+        }
+
+        public bool SendMail(string mailto, string caption, string message, string[] attachFiles)
+        {
+            return DataAccessProvider.EmailAccessor.SendMail(mailto, caption, message, attachFiles);
+        }
+
+        public EmailSettings GetEmailSettings()
+        {
+            return DataAccessProvider.EmailAccessor.GetEmailSettings();
+        }
+
+        public bool SetEmailSettings(EmailSettings emailSettings)
+        {
+            return DataAccessProvider.EmailAccessor.SetEmailSettings(emailSettings);
+        }
+
+        public string GetReportText(int historyId)
+        {
+            //Загрузить всю известную инфу о истории болезни
+            DiseaseHistory history = DataAccessProvider.DBAccessor.GetFullInfoByHistoryId(historyId);
+            //Привязать жалобы
+            IEnumerable<Symptom> symptoms = DataAccessProvider.DBAccessor.GetSymptomsByHistoryId(historyId);
+            //Привязать предварительные диагнозы
+            IEnumerable<string> diseases = DataAccessProvider.DBAccessor.GetDiagnosesByHistoryId(historyId);
+            //Привязать анализы
+            IEnumerable<Analysis> analyses = DataAccessProvider.DBAccessor.GetAnalysesByHistoryId(historyId);
+            //
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"История болезни № {history.Id} от {history.Created:d}");
+            sb.AppendLine();
+            sb.AppendLine($"Пациент № {history.PatientId} - {history.Lname} {history.Fname} {history.Patronymic}, родился {history.DateBirth:d} г.");
+            sb.AppendLine($"Поступление: {history.StatusText}");
+            sb.AppendLine();
+            sb.AppendLine($"Анамнез: ");
+            sb.AppendLine($"{history.Anamnesis}");
+            sb.AppendLine();
+
+            sb.AppendLine($"Жалобы:");
+            foreach (Symptom symptom in symptoms)
+            {
+                sb.AppendLine($"- {symptom.Name}");
+            }
+            sb.AppendLine();
+            sb.AppendLine($"Предварительные диагнозы:");
+            sb.AppendLine($"{string.Join(", ", diseases)}");
+            sb.AppendLine();
+            sb.AppendLine($"Назначенные анализы:");
+            foreach(Analysis analysis in analyses)
+            {
+                sb.AppendLine($"\t{analysis.ShowName}, выполнен {analysis.DateCompleted:d}");
+                sb.AppendLine($" - {analysis.Conclusion}");
+            }
+            sb.AppendLine();
+            sb.AppendLine($"Окончательные диагнозы:");
+            sb.AppendLine($"{history.FinalDiagnoses}");
+            sb.AppendLine();
+            sb.AppendLine($"План лечения:");
+            sb.AppendLine($"{history.TreatmentPlan}");
+
+            return sb.ToString();
+        }
+
+        public bool EditEmployee(string login, string password, int id, string fname, string lname, string patronymic, int role, int departmentId)
+        {
+            return DataAccessProvider.DBAccessor.EditEmployee(login, GetMD5Hash(password), id, fname, lname, patronymic, role, departmentId);
+        }
+
+        public IEnumerable<EmployeeInfo> GetEmployees()
+        {
+            return DataAccessProvider.DBAccessor.GetEmployees();
+        }
+
+        public Employee GetEmployeeById(int employeeId)
+        {
+            return DataAccessProvider.DBAccessor.GetEmployeeById(employeeId);
+        }
+
+        public bool DeleteEmployee(string login, string password, int employeeId)
+        {
+            return DataAccessProvider.DBAccessor.DeleteEmployee(login, GetMD5Hash(password), employeeId);
+        }
     }
 }

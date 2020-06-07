@@ -72,11 +72,23 @@
     <Compile Include="Controls\ControlRegistrator.Designer.cs">
       <DependentUpon>ControlRegistrator.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEmailAuth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmailAuth.Designer.cs">
+      <DependentUpon>FormEmailAuth.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormRegistration.Designer.cs">
       <DependentUpon>FormRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSettings.cs">
       <SubType>Form</SubType>
@@ -110,8 +122,14 @@
     <EmbeddedResource Include="Controls\ControlRegistrator.resx">
       <DependentUpon>ControlRegistrator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEmailAuth.resx">
+      <DependentUpon>FormEmailAuth.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRegistration.resx">
       <DependentUpon>FormRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>

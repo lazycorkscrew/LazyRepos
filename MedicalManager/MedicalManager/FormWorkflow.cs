@@ -25,6 +25,8 @@ namespace MedicalManager
                 case 4: RunAsAdministrator(); break;
                 default: break;
             }
+
+            labelEmployee.Text = $"{employee.Role} {employee.Lname} {employee.Fname} {employee.Patronymic}";
         }
 
         private void RunAsRegistrator()

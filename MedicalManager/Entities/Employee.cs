@@ -14,6 +14,7 @@ namespace MedicalManager.Entities
         public string Lname { get; set; }
         public string Patronymic { get; set; }
         public string Role { get; set; }
+        public int RoleId { get; set; }
         public int Power { get; set; }
         public int DepartmentId { get; set; }
         public string Phone { get; set; }

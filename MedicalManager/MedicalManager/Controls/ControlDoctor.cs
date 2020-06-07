@@ -17,13 +17,14 @@ namespace MedicalManager
         EnumTextBoxFocus inducedTextBox = EnumTextBoxFocus.None;
         Patient currentPatient = null;
         Patient currentPatient3 = null;
-        History currentHistory3 = null;
+        DiseaseHistory currentHistory3 = null;
 
         public ControlDoctor()
         {
             InitializeComponent();
             listBoxAnalyzes.DataSource = LogicProvider.Logic.GetAnalysisTypes();
             listBoxPatients.DataSource = LogicProvider.Logic.SearchPatientsByString(textBoxSearchPatient.Text) as List<PatientString>;
+            listBoxPatients3.DataSource = LogicProvider.Logic.SearchPatientsByString(textBoxSearchPatient.Text) as List<PatientString>;
             listBoxResultSymptom.DataSource = LogicProvider.Logic.SearchSymptomsByString(textBoxSearchSymptom.Text) as List<Symptom>;
         }
 
@@ -165,15 +166,40 @@ namespace MedicalManager
 
         private void listBoxHistories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentHistory3 = listBoxHistories.SelectedItem as History;
+            currentHistory3 = LogicProvider.Logic.GetHistoryById( (listBoxHistories.SelectedItem as History).Id);
             textBoxAnamnesis3.Text = currentHistory3.Anamnesis;
             textBoxPreDiagnoses.Text = string.Join(", ", LogicProvider.Logic.GetDiagnosesByHistoryId(currentHistory3.Id));
+            textBoxFinalDiagnoses.Text = currentHistory3.FinalDiagnoses;
+            textBoxTreatmentPlan.Text = currentHistory3.TreatmentPlan;
             listBoxAnalyses3.DataSource = LogicProvider.Logic.GetAnalysesByHistoryId(currentHistory3.Id);
         }
 
         private void listBoxAnalyses3_SelectedIndexChanged(object sender, EventArgs e)
         {
             labelConclusion.Text = (listBoxAnalyses3.SelectedItem as Analysis).Conclusion;
+        }
+
+        private void linkLabelCopyFromPrevDia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            textBoxFinalDiagnoses.Text = textBoxPreDiagnoses.Text;
+        }
+
+        private void buttonSaveCurrentHistory_Click(object sender, EventArgs e)
+        {
+            bool historyUpdated = LogicProvider.Logic.UpdateHistoryById(currentHistory3.Id, textBoxFinalDiagnoses.Text, textBoxTreatmentPlan.Text);
+            string message = (historyUpdated ? "Данные обновлены." : "Ошибка обновления данных. Обратитесь к администратору.");
+            MessageBox.Show(message, "Уведомление");
+        }
+
+        private void linkClear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            textBoxAnamnes.Text = string.Empty;
+            listBoxSelectedSymptoms.DataSource = null;
+            listBoxSelectedSymptoms.Items.Clear();
+            listBoxSelectedDiagnoses.DataSource = null;
+            listBoxSelectedDiagnoses.Items.Clear();
+            listBoxSelectedAnalyzes.DataSource = null;
+            listBoxSelectedAnalyzes.Items.Clear();
         }
     }
 }

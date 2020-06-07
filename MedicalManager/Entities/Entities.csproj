@@ -46,6 +46,7 @@
     <Compile Include="AnalysisType.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Disease.cs" />
+    <Compile Include="EmailSettings.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeInfo.cs" />
     <Compile Include="EnumTextBoxFocus.cs" />

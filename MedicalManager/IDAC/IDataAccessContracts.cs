@@ -52,5 +52,20 @@ namespace MedicalManager.IDAC
         IEnumerable<Analysis> GetAnalysesByTypeId(int typeId);
 
         bool SetConclusionByAnalysisId(int analysisId, string conclusion);
+
+        DiseaseHistory GetHistoryById(int historyId);
+
+        bool UpdateHistoryById(int historyId, string finalDiagnosis, string treatmentPlan);
+
+        DiseaseHistory GetFullInfoByHistoryId(int historyId);
+        IEnumerable<Symptom> GetSymptomsByHistoryId(int historyId);
+
+        bool EditEmployee(string login, string password, int id, string fname, string lname, string patronymic, int role, int departmentId);
+
+        IEnumerable<EmployeeInfo> GetEmployees();
+
+        Employee GetEmployeeById(int employeeId);
+
+        bool DeleteEmployee(string login, string password, int employeeId);
     }
 }

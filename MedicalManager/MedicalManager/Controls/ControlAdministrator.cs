@@ -15,6 +15,7 @@ namespace MedicalManager.Controls
     public partial class ControlAdministrator : UserControl
     {
         int selectedIndex = 0;
+        int selectedIndexEmployee = 0;
 
         public ControlAdministrator()
         {
@@ -22,6 +23,9 @@ namespace MedicalManager.Controls
             listBoxRequests.DataSource = LogicProvider.Logic.GetRegistrationRequests(Properties.Settings.Default.login, LogicProvider.Logic.GetMD5Hash(Properties.Settings.Default.password));
             comboBoxNewRole.DataSource = LogicProvider.Logic.GetRoles();
             comboBoxNewDepartment.DataSource = LogicProvider.Logic.GetDepartments();
+            listBoxEmployees.DataSource = LogicProvider.Logic.GetEmployees();
+            comboBoxOldRole.DataSource = LogicProvider.Logic.GetRoles();
+            comboBoxOldDepartment.DataSource = LogicProvider.Logic.GetDepartments();
         }
 
         private void timerUpdateInfo_Tick(object sender, EventArgs e)
@@ -86,6 +90,50 @@ namespace MedicalManager.Controls
 
             string message = (someEmpty ? "Заполнены не все необходимые поля." : newEmployeeCreated ? "Новый сотрудник успешно добавлен." : "Не удалось добавить нового сотрудника.");
             MessageBox.Show(message);
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            bool edited = LogicProvider.Logic.EditEmployee(
+                Properties.Settings.Default.login,
+                Properties.Settings.Default.password,
+                (listBoxEmployees.SelectedItem as EmployeeInfo).Id,
+                textBoxOldFname.Text,
+                textBoxOldLname.Text,
+                textBoxOldPatronymic.Text,
+                (comboBoxOldRole.SelectedItem as Role).Id,
+                (comboBoxOldDepartment.SelectedItem as Department).Id);
+            string message = (edited? "Сотрудник успешно изменён.":"Не удалось изменить сотрудника.");
+            MessageBox.Show(message, "Уведомление");
+        }
+
+        private void listBoxEmployees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Employee employee = LogicProvider.Logic.GetEmployeeById((listBoxEmployees.SelectedItem as EmployeeInfo).Id);
+                textBoxOldFname.Text = employee.Fname;
+                textBoxOldLname.Text = employee.Lname;
+                textBoxOldPatronymic.Text = employee.Patronymic;
+
+                comboBoxOldRole.SelectedValue = employee.RoleId;
+                comboBoxOldDepartment.SelectedValue = employee.DepartmentId;
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            bool deleted = LogicProvider.Logic.DeleteEmployee(
+                Properties.Settings.Default.login,
+                Properties.Settings.Default.password, (listBoxEmployees.SelectedItem as EmployeeInfo).Id);
+            string message = (deleted? "Сотрудник успешно удалён.":"Не удалось удалить сотрудника.");
+            MessageBox.Show(message, "Уведомление");
+            listBoxEmployees.DataSource = LogicProvider.Logic.GetEmployees();
         }
     }
 }
