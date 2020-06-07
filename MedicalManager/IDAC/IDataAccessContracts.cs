@@ -48,5 +48,9 @@ namespace MedicalManager.IDAC
         bool AcceptRegistrationRequest(int requestId, string login, string password);
 
         bool RejectRegistrationRequest(int requestId, string login, string password);
+
+        IEnumerable<Analysis> GetAnalysesByTypeId(int typeId);
+
+        bool SetConclusionByAnalysisId(int analysisId, string conclusion);
     }
 }

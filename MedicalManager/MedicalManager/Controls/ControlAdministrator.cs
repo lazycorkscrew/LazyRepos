@@ -20,6 +20,8 @@ namespace MedicalManager.Controls
         {
             InitializeComponent();
             listBoxRequests.DataSource = LogicProvider.Logic.GetRegistrationRequests(Properties.Settings.Default.login, LogicProvider.Logic.GetMD5Hash(Properties.Settings.Default.password));
+            comboBoxNewRole.DataSource = LogicProvider.Logic.GetRoles();
+            comboBoxNewDepartment.DataSource = LogicProvider.Logic.GetDepartments();
         }
 
         private void timerUpdateInfo_Tick(object sender, EventArgs e)
@@ -65,6 +67,25 @@ namespace MedicalManager.Controls
             }
 
             MessageBox.Show(message, "Уведомление");
+        }
+
+        private void buttonCreateEmployee_Click(object sender, EventArgs e)
+        {
+            bool someEmpty = (textBoxNewLogin.Text == string.Empty || textBoxNewPassword.Text == string.Empty ||
+                textBoxNewFname.Text == string.Empty || textBoxNewLname.Text == string.Empty ||
+                textBoxNewPatronymic.Text == string.Empty);
+
+            bool newEmployeeCreated = LogicProvider.Logic.RegisterNewUser
+                (textBoxNewLogin.Text, 
+                textBoxNewPassword.Text, 
+                textBoxNewFname.Text, 
+                textBoxNewLname.Text, 
+                textBoxNewPatronymic.Text, 
+                (comboBoxNewRole.SelectedItem as Role).Id, 
+                (comboBoxNewDepartment.SelectedItem as Department).Id);
+
+            string message = (someEmpty ? "Заполнены не все необходимые поля." : newEmployeeCreated ? "Новый сотрудник успешно добавлен." : "Не удалось добавить нового сотрудника.");
+            MessageBox.Show(message);
         }
     }
 }

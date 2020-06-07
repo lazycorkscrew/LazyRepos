@@ -144,5 +144,15 @@ namespace MedicalManager.BLL
         {
             return DataAccessProvider.DBAccessor.SetDBConnectionString(connectionString);
         }
+
+        public IEnumerable<Analysis> GetAnalysesByTypeId(int typeId)
+        {
+            return DataAccessProvider.DBAccessor.GetAnalysesByTypeId(typeId);
+        }
+
+        public bool SetConclusionByAnalysisId(int analysisId, string conclusion)
+        {
+            return DataAccessProvider.DBAccessor.SetConclusionByAnalysisId(analysisId, conclusion);
+        }
     }
 }

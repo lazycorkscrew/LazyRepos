@@ -177,6 +177,31 @@ namespace MedicalManager.DAL
             }
         }
 
+        public IEnumerable<Analysis> GetAnalysesByTypeId(int typeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("GetAnalysesByTypeId", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@typeId", typeId);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                List<Analysis> analyses = new List<Analysis>();
+
+                while (reader.Read())
+                {
+                    analyses.Add(new Analysis
+                    {
+                        Id = (int)reader["Id"],
+                        DateCreated = $"{(DateTime)reader["DateCreated"]:d}",
+                        TypeName = (string)reader["TypeName"]
+                    });
+                }
+
+                return analyses;
+            }
+        }
+
         public IEnumerable<AnalysisType> GetAnalysisTypes()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -456,8 +481,7 @@ namespace MedicalManager.DAL
                 connection.Open();
                 try
                 {
-                    int result = command.ExecuteNonQuery();
-                    return result == 1;
+                    return command.ExecuteNonQuery() == 1;
                 }
                 catch (Exception ex)
                 {
@@ -511,6 +535,26 @@ namespace MedicalManager.DAL
                 }
 
                 return patients;
+            }
+        }
+
+        public bool SetConclusionByAnalysisId(int analysisId, string conclusion)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SetConclusionByAnalysisId", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@analysisId", analysisId);
+                command.Parameters.AddWithValue("@conclusion", conclusion);
+                connection.Open();
+                try
+                {
+                    return command.ExecuteNonQuery() == 1;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
             }
         }
 

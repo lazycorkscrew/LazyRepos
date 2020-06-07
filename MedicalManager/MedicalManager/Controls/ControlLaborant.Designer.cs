@@ -28,34 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.components = new System.ComponentModel.Container();
+            this.comboBoxAnalysisTypes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.listBoxAnalyses = new System.Windows.Forms.ListBox();
+            this.buttonFillAnalysis = new System.Windows.Forms.Button();
+            this.textBoxConclusion = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelRequestNumber = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timerUpdateInfo = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxAnalysisTypes
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxAnalysisTypes.DisplayMember = "Name";
+            this.comboBoxAnalysisTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAnalysisTypes.FormattingEnabled = true;
+            this.comboBoxAnalysisTypes.Items.AddRange(new object[] {
             "Общий анализ крови"});
-            this.comboBox1.Location = new System.Drawing.Point(144, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxAnalysisTypes.Location = new System.Drawing.Point(144, 3);
+            this.comboBoxAnalysisTypes.Name = "comboBoxAnalysisTypes";
+            this.comboBoxAnalysisTypes.Size = new System.Drawing.Size(196, 21);
+            this.comboBoxAnalysisTypes.TabIndex = 0;
+            this.comboBoxAnalysisTypes.ValueMember = "Id";
+            this.comboBoxAnalysisTypes.SelectedIndexChanged += new System.EventHandler(this.comboBoxAnalysisTypes_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -77,71 +82,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Заявки на проведение анализов";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Найденные заявки:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Общий анализ крови № 143 от 26.05.2020г."});
-            this.listBox1.Location = new System.Drawing.Point(3, 63);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(437, 564);
-            this.listBox1.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Заявка № 145";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(446, 63);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(438, 564);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 37);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(168, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Результат (в свободной форме)";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(776, 638);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Подтвердить";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.listBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.listBoxAnalyses, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.buttonFillAnalysis, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxConclusion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -154,26 +102,91 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(887, 670);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
+            // listBoxAnalyses
+            // 
+            this.listBoxAnalyses.DisplayMember = "ShowName";
+            this.listBoxAnalyses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxAnalyses.FormattingEnabled = true;
+            this.listBoxAnalyses.Location = new System.Drawing.Point(3, 63);
+            this.listBoxAnalyses.Name = "listBoxAnalyses";
+            this.listBoxAnalyses.Size = new System.Drawing.Size(437, 564);
+            this.listBoxAnalyses.TabIndex = 3;
+            this.listBoxAnalyses.ValueMember = "Id";
+            this.listBoxAnalyses.SelectedIndexChanged += new System.EventHandler(this.listBoxAnalyses_SelectedIndexChanged);
+            // 
+            // buttonFillAnalysis
+            // 
+            this.buttonFillAnalysis.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonFillAnalysis.Location = new System.Drawing.Point(776, 638);
+            this.buttonFillAnalysis.Name = "buttonFillAnalysis";
+            this.buttonFillAnalysis.Size = new System.Drawing.Size(108, 23);
+            this.buttonFillAnalysis.TabIndex = 7;
+            this.buttonFillAnalysis.Text = "Подтвердить";
+            this.buttonFillAnalysis.UseVisualStyleBackColor = true;
+            this.buttonFillAnalysis.Click += new System.EventHandler(this.buttonFillAnalysis_Click);
+            // 
+            // textBoxConclusion
+            // 
+            this.textBoxConclusion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxConclusion.Location = new System.Drawing.Point(446, 63);
+            this.textBoxConclusion.Multiline = true;
+            this.textBoxConclusion.Name = "textBoxConclusion";
+            this.textBoxConclusion.Size = new System.Drawing.Size(438, 564);
+            this.textBoxConclusion.TabIndex = 5;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.labelRequestNumber);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(446, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(438, 54);
             this.panel1.TabIndex = 6;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(168, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Результат (в свободной форме)";
+            // 
+            // labelRequestNumber
+            // 
+            this.labelRequestNumber.AutoSize = true;
+            this.labelRequestNumber.Location = new System.Drawing.Point(3, 0);
+            this.labelRequestNumber.Name = "labelRequestNumber";
+            this.labelRequestNumber.Size = new System.Drawing.Size(79, 13);
+            this.labelRequestNumber.TabIndex = 4;
+            this.labelRequestNumber.Text = "Заявка № 145";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.comboBoxAnalysisTypes);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(437, 54);
             this.panel2.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Найденные заявки:";
+            // 
+            // timerUpdateInfo
+            // 
+            this.timerUpdateInfo.Enabled = true;
+            this.timerUpdateInfo.Interval = 10000;
+            this.timerUpdateInfo.Tick += new System.EventHandler(this.timerUpdateInfo_Tick);
             // 
             // ControlLaborant
             // 
@@ -196,17 +209,18 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxAnalysisTypes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox listBoxAnalyses;
+        private System.Windows.Forms.Button buttonFillAnalysis;
+        private System.Windows.Forms.TextBox textBoxConclusion;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelRequestNumber;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timerUpdateInfo;
     }
 }

@@ -18,7 +18,7 @@ namespace MedicalManager.Entities
         {
             get
             {
-                return $"{DateCreated:f} {TypeName}";
+                return $"{DateCreated:f} {TypeName} № {Id}";
             }
         }
     }
