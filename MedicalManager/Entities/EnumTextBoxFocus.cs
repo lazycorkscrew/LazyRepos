@@ -9,6 +9,8 @@ namespace MedicalManager.Entities
     public enum EnumTextBoxFocus
     {
         None,
-        SearchPatients
+        SearchPatients,
+        SearchPatients3,
+        SearchSymptom
     }
 }

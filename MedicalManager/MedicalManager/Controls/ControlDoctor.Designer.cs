@@ -83,30 +83,32 @@
             this.textBoxFname = new System.Windows.Forms.TextBox();
             this.textBoxPatron = new System.Windows.Forms.TextBox();
             this.textBoxSnils = new System.Windows.Forms.TextBox();
+            this.dateTimeBirth = new System.Windows.Forms.DateTimePicker();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listBox8 = new System.Windows.Forms.ListBox();
+            this.listBoxPatients3 = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBoxPreDiagnoses = new System.Windows.Forms.TextBox();
+            this.textBoxAnamnesis3 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.listBox10 = new System.Windows.Forms.ListBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.listBoxAnalyses3 = new System.Windows.Forms.ListBox();
+            this.labelConclusion = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.listBox9 = new System.Windows.Forms.ListBox();
+            this.listBoxHistories = new System.Windows.Forms.ListBox();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxSearchPatients3 = new System.Windows.Forms.TextBox();
             this.button14 = new System.Windows.Forms.Button();
-            this.dateTimeBirth = new System.Windows.Forms.DateTimePicker();
             this.timerTextChangeEvent = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -266,7 +268,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(429, 160);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(344, 160);
             this.tableLayoutPanel4.TabIndex = 8;
             // 
             // label10
@@ -274,14 +276,14 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(168, 13);
+            this.label10.Size = new System.Drawing.Size(128, 20);
             this.label10.TabIndex = 7;
             this.label10.Text = "Анализы, назначенные врачом:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(237, 0);
+            this.label11.Location = new System.Drawing.Point(195, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(111, 13);
             this.label11.TabIndex = 8;
@@ -292,7 +294,7 @@
             this.panel4.Controls.Add(this.buttonRemoveAnalyzis);
             this.panel4.Controls.Add(this.buttonAddAnalyzis);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(197, 23);
+            this.panel4.Location = new System.Drawing.Point(155, 23);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(34, 134);
             this.panel4.TabIndex = 0;
@@ -305,6 +307,7 @@
             this.buttonRemoveAnalyzis.TabIndex = 1;
             this.buttonRemoveAnalyzis.Text = ">";
             this.buttonRemoveAnalyzis.UseVisualStyleBackColor = true;
+            this.buttonRemoveAnalyzis.Click += new System.EventHandler(this.buttonRemoveAnalyzis_Click);
             // 
             // buttonAddAnalyzis
             // 
@@ -314,29 +317,30 @@
             this.buttonAddAnalyzis.TabIndex = 0;
             this.buttonAddAnalyzis.Text = "<";
             this.buttonAddAnalyzis.UseVisualStyleBackColor = true;
+            this.buttonAddAnalyzis.Click += new System.EventHandler(this.buttonAddAnalyzis_Click);
             // 
             // listBoxSelectedAnalyzes
             // 
+            this.listBoxSelectedAnalyzes.DisplayMember = "Name";
             this.listBoxSelectedAnalyzes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxSelectedAnalyzes.FormattingEnabled = true;
             this.listBoxSelectedAnalyzes.Location = new System.Drawing.Point(3, 23);
             this.listBoxSelectedAnalyzes.Name = "listBoxSelectedAnalyzes";
-            this.listBoxSelectedAnalyzes.Size = new System.Drawing.Size(188, 134);
+            this.listBoxSelectedAnalyzes.Size = new System.Drawing.Size(146, 134);
+            this.listBoxSelectedAnalyzes.Sorted = true;
             this.listBoxSelectedAnalyzes.TabIndex = 1;
+            this.listBoxSelectedAnalyzes.ValueMember = "Id";
             // 
             // listBoxAnalyzes
             // 
+            this.listBoxAnalyzes.DisplayMember = "Name";
             this.listBoxAnalyzes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxAnalyzes.FormattingEnabled = true;
-            this.listBoxAnalyzes.Items.AddRange(new object[] {
-            "Измерение давления",
-            "Суточное мониторирование ЭКГ по Холтеру",
-            "Общий анализ крови",
-            "Общий анализ мочи"});
-            this.listBoxAnalyzes.Location = new System.Drawing.Point(237, 23);
+            this.listBoxAnalyzes.Location = new System.Drawing.Point(195, 23);
             this.listBoxAnalyzes.Name = "listBoxAnalyzes";
-            this.listBoxAnalyzes.Size = new System.Drawing.Size(189, 134);
+            this.listBoxAnalyzes.Size = new System.Drawing.Size(146, 134);
             this.listBoxAnalyzes.TabIndex = 2;
+            this.listBoxAnalyzes.ValueMember = "Id";
             // 
             // tableLayoutPanel3
             // 
@@ -357,7 +361,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(429, 160);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(344, 160);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // label8
@@ -365,14 +369,14 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(178, 13);
+            this.label8.Size = new System.Drawing.Size(103, 20);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Предварительный(ые) диагноз(ы)";
+            this.label8.Text = "Предварительные диагнозы";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(237, 0);
+            this.label9.Location = new System.Drawing.Point(195, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(113, 13);
             this.label9.TabIndex = 8;
@@ -383,7 +387,7 @@
             this.panel3.Controls.Add(this.buttonRemoveDiagnosis);
             this.panel3.Controls.Add(this.buttonAddDiagnosis);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(197, 23);
+            this.panel3.Location = new System.Drawing.Point(155, 23);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(34, 134);
             this.panel3.TabIndex = 0;
@@ -396,6 +400,7 @@
             this.buttonRemoveDiagnosis.TabIndex = 1;
             this.buttonRemoveDiagnosis.Text = ">";
             this.buttonRemoveDiagnosis.UseVisualStyleBackColor = true;
+            this.buttonRemoveDiagnosis.Click += new System.EventHandler(this.buttonRemoveDiagnosis_Click);
             // 
             // buttonAddDiagnosis
             // 
@@ -405,29 +410,29 @@
             this.buttonAddDiagnosis.TabIndex = 0;
             this.buttonAddDiagnosis.Text = "<";
             this.buttonAddDiagnosis.UseVisualStyleBackColor = true;
+            this.buttonAddDiagnosis.Click += new System.EventHandler(this.buttonAddDiagnosis_Click);
             // 
             // listBoxSelectedDiagnoses
             // 
+            this.listBoxSelectedDiagnoses.DisplayMember = "Name";
             this.listBoxSelectedDiagnoses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxSelectedDiagnoses.FormattingEnabled = true;
-            this.listBoxSelectedDiagnoses.Items.AddRange(new object[] {
-            "Головная боль напряжения"});
             this.listBoxSelectedDiagnoses.Location = new System.Drawing.Point(3, 23);
             this.listBoxSelectedDiagnoses.Name = "listBoxSelectedDiagnoses";
-            this.listBoxSelectedDiagnoses.Size = new System.Drawing.Size(188, 134);
+            this.listBoxSelectedDiagnoses.Size = new System.Drawing.Size(146, 134);
             this.listBoxSelectedDiagnoses.TabIndex = 1;
+            this.listBoxSelectedDiagnoses.ValueMember = "Id";
             // 
             // listBoxResultDiagnoses
             // 
+            this.listBoxResultDiagnoses.DisplayMember = "NamePercent";
             this.listBoxResultDiagnoses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxResultDiagnoses.FormattingEnabled = true;
-            this.listBoxResultDiagnoses.Items.AddRange(new object[] {
-            "Головная боль напряжения (81%)",
-            "Артериальная гипертензия (19%)"});
-            this.listBoxResultDiagnoses.Location = new System.Drawing.Point(237, 23);
+            this.listBoxResultDiagnoses.Location = new System.Drawing.Point(195, 23);
             this.listBoxResultDiagnoses.Name = "listBoxResultDiagnoses";
-            this.listBoxResultDiagnoses.Size = new System.Drawing.Size(189, 134);
+            this.listBoxResultDiagnoses.Size = new System.Drawing.Size(146, 134);
             this.listBoxResultDiagnoses.TabIndex = 2;
+            this.listBoxResultDiagnoses.ValueMember = "Id";
             // 
             // tableLayoutPanel2
             // 
@@ -447,7 +452,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(429, 160);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(344, 160);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
             // label6
@@ -462,7 +467,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(237, 0);
+            this.label7.Location = new System.Drawing.Point(195, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 13);
             this.label7.TabIndex = 8;
@@ -473,7 +478,7 @@
             this.panel2.Controls.Add(this.buttonRemoveSymptom);
             this.panel2.Controls.Add(this.buttonAddSymptom);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(197, 23);
+            this.panel2.Location = new System.Drawing.Point(155, 23);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(34, 134);
             this.panel2.TabIndex = 0;
@@ -486,6 +491,7 @@
             this.buttonRemoveSymptom.TabIndex = 1;
             this.buttonRemoveSymptom.Text = ">";
             this.buttonRemoveSymptom.UseVisualStyleBackColor = true;
+            this.buttonRemoveSymptom.Click += new System.EventHandler(this.buttonRemoveSymptom_Click);
             // 
             // buttonAddSymptom
             // 
@@ -495,29 +501,29 @@
             this.buttonAddSymptom.TabIndex = 0;
             this.buttonAddSymptom.Text = "<";
             this.buttonAddSymptom.UseVisualStyleBackColor = true;
+            this.buttonAddSymptom.Click += new System.EventHandler(this.buttonAddSymptom_Click);
             // 
             // listBoxSelectedSymptoms
             // 
+            this.listBoxSelectedSymptoms.DisplayMember = "Name";
             this.listBoxSelectedSymptoms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxSelectedSymptoms.FormattingEnabled = true;
-            this.listBoxSelectedSymptoms.Items.AddRange(new object[] {
-            "Головная боль"});
             this.listBoxSelectedSymptoms.Location = new System.Drawing.Point(3, 23);
             this.listBoxSelectedSymptoms.Name = "listBoxSelectedSymptoms";
-            this.listBoxSelectedSymptoms.Size = new System.Drawing.Size(188, 134);
+            this.listBoxSelectedSymptoms.Size = new System.Drawing.Size(146, 134);
             this.listBoxSelectedSymptoms.TabIndex = 1;
+            this.listBoxSelectedSymptoms.ValueMember = "Id";
             // 
             // listBoxResultSymptom
             // 
+            this.listBoxResultSymptom.DisplayMember = "Name";
             this.listBoxResultSymptom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxResultSymptom.FormattingEnabled = true;
-            this.listBoxResultSymptom.Items.AddRange(new object[] {
-            "Головная боль",
-            "Головокружение"});
-            this.listBoxResultSymptom.Location = new System.Drawing.Point(237, 23);
+            this.listBoxResultSymptom.Location = new System.Drawing.Point(195, 23);
             this.listBoxResultSymptom.Name = "listBoxResultSymptom";
-            this.listBoxResultSymptom.Size = new System.Drawing.Size(189, 134);
+            this.listBoxResultSymptom.Size = new System.Drawing.Size(146, 134);
             this.listBoxResultSymptom.TabIndex = 2;
+            this.listBoxResultSymptom.ValueMember = "Id";
             // 
             // textBoxSearchSymptom
             // 
@@ -525,9 +531,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSearchSymptom.Location = new System.Drawing.Point(58, 150);
             this.textBoxSearchSymptom.Name = "textBoxSearchSymptom";
-            this.textBoxSearchSymptom.Size = new System.Drawing.Size(378, 20);
+            this.textBoxSearchSymptom.Size = new System.Drawing.Size(293, 20);
             this.textBoxSearchSymptom.TabIndex = 5;
-            this.textBoxSearchSymptom.Text = "Голов";
+            this.textBoxSearchSymptom.TextChanged += new System.EventHandler(this.textBoxSearchSymptom_TextChanged);
             // 
             // label5
             // 
@@ -563,7 +569,7 @@
             this.textBoxAnamnes.Location = new System.Drawing.Point(10, 20);
             this.textBoxAnamnes.Multiline = true;
             this.textBoxAnamnes.Name = "textBoxAnamnes";
-            this.textBoxAnamnes.Size = new System.Drawing.Size(426, 111);
+            this.textBoxAnamnes.Size = new System.Drawing.Size(341, 111);
             this.textBoxAnamnes.TabIndex = 1;
             // 
             // labelPatientInfo
@@ -618,6 +624,7 @@
             this.buttonSaveNewHistory.TabIndex = 5;
             this.buttonSaveNewHistory.Text = "Сохранить";
             this.buttonSaveNewHistory.UseVisualStyleBackColor = true;
+            this.buttonSaveNewHistory.Click += new System.EventHandler(this.buttonSaveNewHistory_Click);
             // 
             // tabPage2
             // 
@@ -751,6 +758,14 @@
             this.textBoxSnils.Size = new System.Drawing.Size(154, 20);
             this.textBoxSnils.TabIndex = 9;
             // 
+            // dateTimeBirth
+            // 
+            this.dateTimeBirth.Location = new System.Drawing.Point(162, 87);
+            this.dateTimeBirth.Name = "dateTimeBirth";
+            this.dateTimeBirth.Size = new System.Drawing.Size(154, 20);
+            this.dateTimeBirth.TabIndex = 10;
+            this.dateTimeBirth.Value = new System.DateTime(1980, 1, 1, 0, 0, 0, 0);
+            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.MintCream;
@@ -785,7 +800,7 @@
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.listBox8);
+            this.groupBox4.Controls.Add(this.listBoxPatients3);
             this.groupBox4.Location = new System.Drawing.Point(518, 3);
             this.groupBox4.Name = "groupBox4";
             this.tableLayoutPanel5.SetRowSpan(this.groupBox4, 3);
@@ -794,18 +809,19 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Найденные пациенты:";
             // 
-            // listBox8
+            // listBoxPatients3
             // 
-            this.listBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxPatients3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox8.FormattingEnabled = true;
-            this.listBox8.Items.AddRange(new object[] {
-            "Парамонов Евпатий фёдорович, 6303 228420, 21.05.1980"});
-            this.listBox8.Location = new System.Drawing.Point(6, 16);
-            this.listBox8.Name = "listBox8";
-            this.listBox8.Size = new System.Drawing.Size(204, 394);
-            this.listBox8.TabIndex = 0;
+            this.listBoxPatients3.DisplayMember = "FullInfo";
+            this.listBoxPatients3.FormattingEnabled = true;
+            this.listBoxPatients3.Location = new System.Drawing.Point(6, 16);
+            this.listBoxPatients3.Name = "listBoxPatients3";
+            this.listBoxPatients3.Size = new System.Drawing.Size(204, 394);
+            this.listBoxPatients3.TabIndex = 0;
+            this.listBoxPatients3.ValueMember = "Id";
+            this.listBoxPatients3.SelectedIndexChanged += new System.EventHandler(this.listBoxPatients3_SelectedIndexChanged);
             // 
             // groupBox5
             // 
@@ -827,6 +843,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.AutoScroll = true;
+            this.panel5.Controls.Add(this.textBoxPreDiagnoses);
+            this.panel5.Controls.Add(this.textBoxAnamnesis3);
             this.panel5.Controls.Add(this.label18);
             this.panel5.Controls.Add(this.textBox5);
             this.panel5.Controls.Add(this.textBox4);
@@ -836,16 +854,37 @@
             this.panel5.Controls.Add(this.label15);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label13);
-            this.panel5.Controls.Add(this.listBox9);
+            this.panel5.Controls.Add(this.listBoxHistories);
             this.panel5.Location = new System.Drawing.Point(9, 45);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(494, 279);
             this.panel5.TabIndex = 2;
             // 
+            // textBoxPreDiagnoses
+            // 
+            this.textBoxPreDiagnoses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPreDiagnoses.Location = new System.Drawing.Point(6, 270);
+            this.textBoxPreDiagnoses.Multiline = true;
+            this.textBoxPreDiagnoses.Name = "textBoxPreDiagnoses";
+            this.textBoxPreDiagnoses.Size = new System.Drawing.Size(441, 129);
+            this.textBoxPreDiagnoses.TabIndex = 12;
+            // 
+            // textBoxAnamnesis3
+            // 
+            this.textBoxAnamnesis3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxAnamnesis3.Location = new System.Drawing.Point(6, 136);
+            this.textBoxAnamnesis3.Multiline = true;
+            this.textBoxAnamnesis3.Name = "textBoxAnamnesis3";
+            this.textBoxAnamnesis3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxAnamnesis3.Size = new System.Drawing.Size(441, 115);
+            this.textBoxAnamnesis3.TabIndex = 11;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(12, 481);
+            this.label18.Location = new System.Drawing.Point(9, 662);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(80, 13);
             this.label18.TabIndex = 9;
@@ -855,26 +894,26 @@
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(12, 497);
+            this.textBox5.Location = new System.Drawing.Point(9, 678);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(425, 81);
+            this.textBox5.Size = new System.Drawing.Size(340, 81);
             this.textBox5.TabIndex = 8;
             // 
             // textBox4
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(12, 408);
+            this.textBox4.Location = new System.Drawing.Point(9, 589);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(425, 70);
+            this.textBox4.Size = new System.Drawing.Size(340, 70);
             this.textBox4.TabIndex = 7;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 392);
+            this.label17.Location = new System.Drawing.Point(3, 573);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(134, 13);
             this.label17.TabIndex = 6;
@@ -887,37 +926,40 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.listBox10, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label12, 1, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(9, 237);
+            this.tableLayoutPanel6.Controls.Add(this.listBoxAnalyses3, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.labelConclusion, 1, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(6, 418);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(428, 152);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(343, 152);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
-            // listBox10
+            // listBoxAnalyses3
             // 
-            this.listBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox10.FormattingEnabled = true;
-            this.listBox10.Location = new System.Drawing.Point(3, 3);
-            this.listBox10.Name = "listBox10";
-            this.listBox10.Size = new System.Drawing.Size(208, 146);
-            this.listBox10.TabIndex = 0;
+            this.listBoxAnalyses3.DisplayMember = "ShowName";
+            this.listBoxAnalyses3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxAnalyses3.FormattingEnabled = true;
+            this.listBoxAnalyses3.Location = new System.Drawing.Point(3, 3);
+            this.listBoxAnalyses3.Name = "listBoxAnalyses3";
+            this.listBoxAnalyses3.Size = new System.Drawing.Size(165, 146);
+            this.listBoxAnalyses3.TabIndex = 0;
+            this.listBoxAnalyses3.ValueMember = "Conclusion";
+            this.listBoxAnalyses3.SelectedIndexChanged += new System.EventHandler(this.listBoxAnalyses3_SelectedIndexChanged);
             // 
-            // label12
+            // labelConclusion
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(217, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(16, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "...";
+            this.labelConclusion.AutoSize = true;
+            this.labelConclusion.Location = new System.Drawing.Point(174, 0);
+            this.labelConclusion.Name = "labelConclusion";
+            this.labelConclusion.Size = new System.Drawing.Size(16, 13);
+            this.labelConclusion.TabIndex = 1;
+            this.labelConclusion.Text = "...";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 221);
+            this.label16.Location = new System.Drawing.Point(3, 402);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(55, 13);
             this.label16.TabIndex = 4;
@@ -926,7 +968,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 166);
+            this.label15.Location = new System.Drawing.Point(3, 254);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(155, 13);
             this.label15.TabIndex = 3;
@@ -950,15 +992,18 @@
             this.label13.TabIndex = 1;
             this.label13.Text = "Истории болезней";
             // 
-            // listBox9
+            // listBoxHistories
             // 
-            this.listBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxHistories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox9.FormattingEnabled = true;
-            this.listBox9.Location = new System.Drawing.Point(6, 16);
-            this.listBox9.Name = "listBox9";
-            this.listBox9.Size = new System.Drawing.Size(431, 95);
-            this.listBox9.TabIndex = 0;
+            this.listBoxHistories.DisplayMember = "Name";
+            this.listBoxHistories.FormattingEnabled = true;
+            this.listBoxHistories.Location = new System.Drawing.Point(6, 16);
+            this.listBoxHistories.Name = "listBoxHistories";
+            this.listBoxHistories.Size = new System.Drawing.Size(346, 95);
+            this.listBoxHistories.TabIndex = 0;
+            this.listBoxHistories.ValueMember = "Id";
+            this.listBoxHistories.SelectedIndexChanged += new System.EventHandler(this.listBoxHistories_SelectedIndexChanged);
             // 
             // label23
             // 
@@ -974,7 +1019,7 @@
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.label24);
-            this.groupBox6.Controls.Add(this.textBox8);
+            this.groupBox6.Controls.Add(this.textBoxSearchPatients3);
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(509, 51);
@@ -993,15 +1038,15 @@
             this.label24.TabIndex = 0;
             this.label24.Text = "Пациент: ";
             // 
-            // textBox8
+            // textBoxSearchPatients3
             // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxSearchPatients3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.Location = new System.Drawing.Point(68, 16);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(435, 20);
-            this.textBox8.TabIndex = 1;
-            this.textBox8.Text = "Парамонов";
+            this.textBoxSearchPatients3.Location = new System.Drawing.Point(68, 16);
+            this.textBoxSearchPatients3.Name = "textBoxSearchPatients3";
+            this.textBoxSearchPatients3.Size = new System.Drawing.Size(435, 20);
+            this.textBoxSearchPatients3.TabIndex = 1;
+            this.textBoxSearchPatients3.TextChanged += new System.EventHandler(this.textBoxSearchPatients3_TextChanged);
             // 
             // button14
             // 
@@ -1012,14 +1057,6 @@
             this.button14.TabIndex = 5;
             this.button14.Text = "Сохранить";
             this.button14.UseVisualStyleBackColor = true;
-            // 
-            // dateTimeBirth
-            // 
-            this.dateTimeBirth.Location = new System.Drawing.Point(162, 87);
-            this.dateTimeBirth.Name = "dateTimeBirth";
-            this.dateTimeBirth.Size = new System.Drawing.Size(154, 20);
-            this.dateTimeBirth.TabIndex = 10;
-            this.dateTimeBirth.Value = new System.DateTime(1980, 1, 1, 0, 0, 0, 0);
             // 
             // timerTextChangeEvent
             // 
@@ -1118,7 +1155,7 @@
         private System.Windows.Forms.Button buttonSaveNewHistory;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ListBox listBox8;
+        private System.Windows.Forms.ListBox listBoxPatients3;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label18;
@@ -1126,17 +1163,17 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.ListBox listBox10;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ListBox listBoxAnalyses3;
+        private System.Windows.Forms.Label labelConclusion;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ListBox listBox9;
+        private System.Windows.Forms.ListBox listBoxHistories;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBoxSearchPatients3;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button buttonCreateNewPatient;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
@@ -1151,5 +1188,7 @@
         private System.Windows.Forms.TextBox textBoxSnils;
         private System.Windows.Forms.DateTimePicker dateTimeBirth;
         private System.Windows.Forms.Timer timerTextChangeEvent;
+        private System.Windows.Forms.TextBox textBoxAnamnesis3;
+        private System.Windows.Forms.TextBox textBoxPreDiagnoses;
     }
 }

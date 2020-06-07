@@ -7,3 +7,12 @@ C:\Users\Химик\source\repos\MedicalManager\IBLC\obj\Debug\IBLC.csproj.CoreC
 C:\Users\Химик\source\repos\MedicalManager\IBLC\obj\Debug\IBLC.csproj.CopyComplete
 C:\Users\Химик\source\repos\MedicalManager\IBLC\obj\Debug\IBLC.dll
 C:\Users\Химик\source\repos\MedicalManager\IBLC\obj\Debug\IBLC.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\bin\Debug\IBLC.dll
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\bin\Debug\IBLC.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\bin\Debug\Entities.dll
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\bin\Debug\Entities.pdb
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\obj\Debug\IBLC.csprojAssemblyReference.cache
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\obj\Debug\IBLC.csproj.CoreCompileInputs.cache
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\obj\Debug\IBLC.csproj.CopyComplete
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\obj\Debug\IBLC.dll
+C:\Users\Химик\Documents\GitHub\LazyRepos\MedicalManager\IBLC\obj\Debug\IBLC.pdb

@@ -88,6 +88,7 @@
             this.ClientSize = new System.Drawing.Size(991, 647);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormWorkflow";
+            this.ShowIcon = false;
             this.Text = "FormWorkflow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormWorkflow_FormClosing);
             this.panel1.ResumeLayout(false);

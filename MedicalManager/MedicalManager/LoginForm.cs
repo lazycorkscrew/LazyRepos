@@ -18,42 +18,54 @@ namespace MedicalManager
         public LoginForm()
         {
             InitializeComponent();
-            bool a = LogicProvider.Logic.RegisterNewUser("registrator","registrator","Регистратор","Регистраторов","Регистратурович", 1);
+            //bool a = LogicProvider.Logic.RegisterNewUser("registrator","registrator","Регистратор","Регистраторов","Регистратурович", 1);
             textBoxLogin.Text = Properties.Settings.Default.login;
             textBoxPassword.Text = Properties.Settings.Default.password;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Employee employee = LogicProvider.Logic.GetEmployeeByLoginAndPassword(textBoxLogin.Text, LogicProvider.Logic.GetMD5Hash(textBoxPassword.Text));
-
-            if (employee == null)
+            try
             {
-                MessageBox.Show("Не удалось найти соответствие логина/пароля при авторизации.","Ошибка");
-                return;
-            }
-            else
-            {
-                Properties.Settings.Default.login = textBoxLogin.Text;
-                Properties.Settings.Default.password = textBoxPassword.Text;
-                Properties.Settings.Default.Save();
-                Visible = false;
+                Employee employee = LogicProvider.Logic.GetEmployeeByLoginAndPassword(textBoxLogin.Text, LogicProvider.Logic.GetMD5Hash(textBoxPassword.Text));
 
-                FormWorkflow formWorkflow = new FormWorkflow(employee);
-                DialogResult dialogResult = formWorkflow.ShowDialog();
-                switch (dialogResult)
+                if (employee == null)
                 {
-                    case DialogResult.Cancel: Close(); break;
-                    case DialogResult.Abort: Visible = true; break;
-                    default: break;
+                    MessageBox.Show("Не удалось найти соответствие логина/пароля при авторизации.", "Ошибка");
+                    return;
                 }
+                else
+                {
+                    Properties.Settings.Default.login = textBoxLogin.Text;
+                    Properties.Settings.Default.password = textBoxPassword.Text;
+                    Properties.Settings.Default.Save();
+                    Visible = false;
 
+                    FormWorkflow formWorkflow = new FormWorkflow(employee);
+                    DialogResult dialogResult = formWorkflow.ShowDialog();
+                    switch (dialogResult)
+                    {
+                        case DialogResult.Cancel: Close(); break;
+                        case DialogResult.Abort: Visible = true; break;
+                        default: break;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Не удалось соединиться с базой данных.","Ошибка");
             }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new FormRegistration().ShowDialog();
+        }
+
+        private void linkLabelSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormSettings formSettings = new FormSettings();
+            formSettings.ShowDialog();
         }
     }
 }
