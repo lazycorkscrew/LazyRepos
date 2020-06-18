@@ -197,6 +197,37 @@ namespace MedicalManager.DAL
             }
         }
 
+        public IEnumerable<AnalysisType> GetAnalysesByDiseases(IEnumerable<int> diseaseIds)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("if object_id('tempdb..#DiseaseIDs') is not null drop table #DiseaseIDs CREATE TABLE #DiseaseIDs (Value INT)");
+            foreach (int diseaseId in diseaseIds)
+            {
+                sb.AppendLine($"insert into #DiseaseIDs (Value) values ({diseaseId})");
+            }
+
+            sb.AppendLine("exec [GetAnalysesByDiseases]");
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sb.ToString(), connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                List<AnalysisType> analyses = new List<AnalysisType>();
+
+                while (reader.Read())
+                {
+                    analyses.Add(new AnalysisType
+                    {
+                        Id = (int)reader["Id"],
+                        Name = (string)reader["TypeName"]
+                    });
+                }
+
+                return analyses;
+            }
+        }
+
         public IEnumerable<Analysis> GetAnalysesByHistoryId(int historyId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

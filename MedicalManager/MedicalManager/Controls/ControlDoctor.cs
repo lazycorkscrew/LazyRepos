@@ -48,6 +48,19 @@ namespace MedicalManager
             listBoxResultDiagnoses.DataSource = LogicProvider.Logic.GetDiseasesBySymptoms(symptomIds);
         }
 
+        private void SearchAnalyses()
+        {
+            int selectedDiseasesCount = listBoxSelectedDiagnoses.Items.Count;
+            int[] diseaseIds = new int[selectedDiseasesCount];
+
+            for (int i = 0; i < selectedDiseasesCount; i++)
+            {
+                diseaseIds[i] = (listBoxSelectedDiagnoses.Items[i] as Disease).Id;
+            }
+
+            listBoxAnalyzes.DataSource = LogicProvider.Logic.GetAnalysesByDiseases(diseaseIds);
+        }
+
         private void buttonCreateNewPatient_Click(object sender, EventArgs e)
         {
             bool isCompleted = LogicProvider.Logic.CreateNewPatient(textBoxFname.Text, textBoxLname.Text, textBoxPatron.Text, textBoxSnils.Text, dateTimeBirth.Value);
@@ -120,11 +133,30 @@ namespace MedicalManager
             }
 
             listBoxSelectedDiagnoses.Items.Add(listBoxResultDiagnoses.SelectedItem);
+
+
+            if(checkBoxAllAnalyses.Checked)
+            {
+                listBoxAnalyzes.DataSource = LogicProvider.Logic.GetAnalysisTypes();
+            }
+            else
+            {
+                SearchAnalyses();
+            }
         }
 
         private void buttonRemoveDiagnosis_Click(object sender, EventArgs e)
         {
             listBoxSelectedDiagnoses.Items.Remove(listBoxSelectedDiagnoses.SelectedItem);
+
+            if (checkBoxAllAnalyses.Checked)
+            {
+                listBoxAnalyzes.DataSource = LogicProvider.Logic.GetAnalysisTypes();
+            }
+            else
+            {
+                SearchAnalyses();
+            }
         }
 
         private void buttonAddAnalyzis_Click(object sender, EventArgs e)
@@ -158,10 +190,20 @@ namespace MedicalManager
 
         private void listBoxPatients3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             currentPatient3 = LogicProvider.Logic.GetPatientById((listBoxPatients3.SelectedItem as PatientString).Id);
             listBoxHistories.DataSource = LogicProvider.Logic.GetHistoriesByUserId(currentPatient3.Id);
+            label23.Text = $"Пациент {currentPatient3.Lname} {currentPatient3.Fname} {currentPatient3.Patronymic} {currentPatient3.DateBirth:d} {currentPatient3.SNILS}";
+            if(listBoxHistories.Items.Count == 0)
+            {
+                textBoxAnamnes.Clear();
+                textBoxPreDiagnoses.Clear();
+                textBoxFinalDiagnoses.Clear();
+                labelConclusion.Text = "...";
+                listBoxAnalyses3.DataSource = null;
+                listBoxAnalyses3.Items.Clear();
+                textBoxTreatmentPlan.Clear();
+
+            }
         }
 
         private void listBoxHistories_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,7 +218,14 @@ namespace MedicalManager
 
         private void listBoxAnalyses3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            labelConclusion.Text = (listBoxAnalyses3.SelectedItem as Analysis).Conclusion;
+            try
+            {
+                labelConclusion.Text = (listBoxAnalyses3.SelectedItem as Analysis)?.Conclusion?? "...";
+            }
+            catch(Exception ex)
+            {
+                labelConclusion.Text = "...";
+            }
         }
 
         private void linkLabelCopyFromPrevDia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -200,6 +249,18 @@ namespace MedicalManager
             listBoxSelectedDiagnoses.Items.Clear();
             listBoxSelectedAnalyzes.DataSource = null;
             listBoxSelectedAnalyzes.Items.Clear();
+        }
+
+        private void checkBoxAllAnalyses_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAllAnalyses.Checked)
+            {
+                listBoxAnalyzes.DataSource = LogicProvider.Logic.GetAnalysisTypes();
+            }
+            else
+            {
+                SearchAnalyses();
+            }
         }
     }
 }

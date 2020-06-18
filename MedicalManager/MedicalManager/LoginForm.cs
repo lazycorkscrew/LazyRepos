@@ -18,9 +18,8 @@ namespace MedicalManager
         public LoginForm()
         {
             InitializeComponent();
-            //bool a = LogicProvider.Logic.RegisterNewUser("registrator","registrator","Регистратор","Регистраторов","Регистратурович", 1);
-            textBoxLogin.Text = Properties.Settings.Default.login;
-            textBoxPassword.Text = Properties.Settings.Default.password;
+            /*textBoxLogin.Text = Properties.Settings.Default.login;
+            textBoxPassword.Text = Properties.Settings.Default.password;*/
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -40,6 +39,8 @@ namespace MedicalManager
                     Properties.Settings.Default.password = textBoxPassword.Text;
                     Properties.Settings.Default.Save();
                     Visible = false;
+                    textBoxLogin.Text = string.Empty;
+                    textBoxPassword.Text = string.Empty;
 
                     FormWorkflow formWorkflow = new FormWorkflow(employee);
                     DialogResult dialogResult = formWorkflow.ShowDialog();

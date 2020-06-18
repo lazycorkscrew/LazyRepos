@@ -245,5 +245,10 @@ namespace MedicalManager.BLL
         {
             return DataAccessProvider.DBAccessor.DeleteEmployee(login, GetMD5Hash(password), employeeId);
         }
+
+        public IEnumerable<AnalysisType> GetAnalysesByDiseases(IEnumerable<int> diseaseIds)
+        {
+            return DataAccessProvider.DBAccessor.GetAnalysesByDiseases(diseaseIds);
+        }
     }
 }

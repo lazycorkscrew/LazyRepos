@@ -10,27 +10,16 @@ namespace MedicalManager.IBLC
     public interface ILogicContracts
     {
         string GetDBConnectionString();
-
         bool SetDBConnectionString(string connectionString);
-
         string GetMD5Hash(string input);
-
         Employee GetEmployeeByLoginAndPassword(string login, string password);
-
         bool RegisterNewUser(string login, string password, string fname, string lname, string patronymic, int role, int departmentId);
-
         bool CreateNewPatient(string fname, string lname, string patronymic, string snils, DateTime dateBirth);
-
         IEnumerable<PatientString> SearchPatientsByString(string query);
-
         IEnumerable<Symptom> SearchSymptomsByString(string query);
-
         Patient GetPatientById(int id);
-
         IEnumerable<Disease> GetDiseasesBySymptoms(IEnumerable<int> symptomIds);
-
         IEnumerable<AnalysisType> GetAnalysisTypes();
-
         bool CreateNewHistory(int patientId, int status, string anamnesis, IEnumerable<Symptom> symptoms, IEnumerable<Disease> diagnoses, IEnumerable<AnalysisType> analyses);
 
         IEnumerable<History> GetHistoriesByUserId(int userId);
@@ -71,7 +60,6 @@ namespace MedicalManager.IBLC
         EmailSettings GetEmailSettings();
 
         bool SetEmailSettings(EmailSettings emailSettings);
-        //
 
         string GetReportText(int historyId);
 
@@ -80,5 +68,7 @@ namespace MedicalManager.IBLC
         Employee GetEmployeeById(int employeeId);
 
         bool DeleteEmployee(string login, string password, int employeeId);
+
+        IEnumerable<AnalysisType> GetAnalysesByDiseases(IEnumerable<int> diseaseIds);
     }
 }

@@ -51,9 +51,14 @@ namespace MedicalManager.Controls
 
         private void buttonFillAnalysis_Click(object sender, EventArgs e)
         {
-            bool analysisFilled = LogicProvider.Logic.SetConclusionByAnalysisId((listBoxAnalyses.SelectedItem as Analysis).Id, textBoxConclusion.Text);
+            bool analysisFilled = listBoxAnalyses.SelectedItem != null && LogicProvider.Logic.SetConclusionByAnalysisId((listBoxAnalyses.SelectedItem as Analysis).Id, textBoxConclusion.Text);
             string message = (analysisFilled? "Результат анализа успешно добавлен.":"Не удалось добавить результат анализа. Обратитесь к администратору.");
             MessageBox.Show(message, "Уведомление");
+            if (analysisFilled)
+            {
+                textBoxConclusion.Text = string.Empty;
+            }
+
             listBoxAnalyses.DataSource = LogicProvider.Logic.GetAnalysesByTypeId((comboBoxAnalysisTypes.SelectedItem as AnalysisType).Id);
         }
     }

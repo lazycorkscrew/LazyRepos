@@ -28,14 +28,25 @@ namespace MedicalManager.Controls
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            bool sent = LogicProvider.Logic.SendMail
+            string message;
+            bool sent;
+            if (listBoxHistories.SelectedItem != null)
+            {
+                sent = LogicProvider.Logic.SendMail
                 (
-                    textBoxMailTo.Text, 
+                    textBoxMailTo.Text,
                     $"Отчёт о истории болезни {(listBoxHistories.SelectedItem as History).Name}",
-                    LogicProvider.Logic.GetReportText((listBoxHistories.SelectedItem as History).Id), 
+                    LogicProvider.Logic.GetReportText((listBoxHistories.SelectedItem as History).Id),
                     new string[] { }
                 );
-            string message = (sent? "Отчёт успешно отправлен.":"Не удалось отправить отчёт. Обратитесь к администратору.");
+
+                message = (sent ? "Отчёт успешно отправлен." : "Не удалось отправить отчёт. Обратитесь к администратору.");
+            }
+            else
+            {
+                message = "Не выбрана история болезни.";
+            }
+            
             MessageBox.Show(message, "Уведомление");
         }
 
@@ -54,12 +65,21 @@ namespace MedicalManager.Controls
         private void listBoxPatients_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBoxHistories.DataSource = LogicProvider.Logic.GetHistoriesByUserId((listBoxPatients.SelectedItem as PatientString).Id);
+            labelPatientInfo.Text = (listBoxPatients.SelectedItem as PatientString).FullInfo;
         }
 
         private void buttonShowReport_Click(object sender, EventArgs e)
         {
-            FormReport formReport = new FormReport((listBoxHistories.SelectedItem as History).Id);
-            formReport.ShowDialog();
+            try
+            {
+                FormReport formReport = new FormReport((listBoxHistories.SelectedItem as History).Id);
+                formReport.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Не выбрана история болезни.", "Уведомление");
+            }
+            
         }
     }
 }

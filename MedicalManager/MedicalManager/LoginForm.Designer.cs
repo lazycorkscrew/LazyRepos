@@ -38,7 +38,7 @@
             // textBoxLogin
             // 
             this.textBoxLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxLogin.Location = new System.Drawing.Point(61, 26);
+            this.textBoxLogin.Location = new System.Drawing.Point(88, 29);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(164, 20);
             this.textBoxLogin.TabIndex = 0;
@@ -46,7 +46,7 @@
             // textBoxPassword
             // 
             this.textBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxPassword.Location = new System.Drawing.Point(61, 52);
+            this.textBoxPassword.Location = new System.Drawing.Point(88, 55);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '○';
             this.textBoxPassword.Size = new System.Drawing.Size(164, 20);
@@ -55,7 +55,7 @@
             // btnLogin
             // 
             this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogin.Location = new System.Drawing.Point(61, 78);
+            this.btnLogin.Location = new System.Drawing.Point(88, 81);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(164, 23);
             this.btnLogin.TabIndex = 2;
@@ -66,7 +66,7 @@
             // linkLabel1
             // 
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.linkLabel1.Location = new System.Drawing.Point(61, 104);
+            this.linkLabel1.Location = new System.Drawing.Point(88, 107);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(164, 23);
             this.linkLabel1.TabIndex = 3;
@@ -79,7 +79,7 @@
             // 
             this.linkLabelSettings.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabelSettings.AutoSize = true;
-            this.linkLabelSettings.Location = new System.Drawing.Point(112, 127);
+            this.linkLabelSettings.Location = new System.Drawing.Point(139, 130);
             this.linkLabelSettings.Name = "linkLabelSettings";
             this.linkLabelSettings.Size = new System.Drawing.Size(62, 13);
             this.linkLabelSettings.TabIndex = 4;
@@ -91,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 156);
+            this.ClientSize = new System.Drawing.Size(340, 163);
             this.Controls.Add(this.linkLabelSettings);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnLogin);
@@ -100,7 +100,7 @@
             this.Name = "LoginForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "СППР для мед. учреждений";
+            this.Text = "Медицинская информационная система";
             this.ResumeLayout(false);
             this.PerformLayout();
 

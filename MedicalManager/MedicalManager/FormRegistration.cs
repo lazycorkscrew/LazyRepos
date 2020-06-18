@@ -35,6 +35,11 @@ namespace MedicalManager
                 textBoxPhone.Text);
             string message = (someEmpty? "Заполнены не все необходимые поля.": created? "Заявка на добавление нового сотрудника успешно передана администратору на проверку." : "Не удалось отправить заявку на добавление нового сотрудника.");
             MessageBox.Show(message);
+
+            if(created)
+            {
+                Close();
+            }
         }
     }
 }

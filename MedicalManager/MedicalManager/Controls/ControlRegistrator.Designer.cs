@@ -39,16 +39,16 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.listBoxHistories = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabelEmailSettings = new System.Windows.Forms.LinkLabel();
             this.buttonSend = new System.Windows.Forms.Button();
             this.textBoxMailTo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonShowReport = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelPatientInfo = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxQuery = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.linkLabelEmailSettings = new System.Windows.Forms.LinkLabel();
             this.timerBeforeRequest = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -114,7 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.linkClear);
             this.groupBox2.Controls.Add(this.panel1);
-            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.labelPatientInfo);
             this.groupBox2.Location = new System.Drawing.Point(3, 63);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(605, 509);
@@ -195,6 +195,18 @@
             this.panel2.Size = new System.Drawing.Size(286, 433);
             this.panel2.TabIndex = 1;
             // 
+            // linkLabelEmailSettings
+            // 
+            this.linkLabelEmailSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelEmailSettings.AutoSize = true;
+            this.linkLabelEmailSettings.Location = new System.Drawing.Point(120, 420);
+            this.linkLabelEmailSettings.Name = "linkLabelEmailSettings";
+            this.linkLabelEmailSettings.Size = new System.Drawing.Size(163, 13);
+            this.linkLabelEmailSettings.TabIndex = 4;
+            this.linkLabelEmailSettings.TabStop = true;
+            this.linkLabelEmailSettings.Text = "Настройки электронной почты";
+            this.linkLabelEmailSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEmailSettings_LinkClicked);
+            // 
             // buttonSend
             // 
             this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -237,14 +249,14 @@
             this.buttonShowReport.UseVisualStyleBackColor = true;
             this.buttonShowReport.Click += new System.EventHandler(this.buttonShowReport_Click);
             // 
-            // label2
+            // labelPatientInfo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(318, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Пациент ФАМИЛИЯ ИМЯ ОТЧЕСТВО, ДД.ММ.ГГГГ, СНИЛС";
+            this.labelPatientInfo.AutoSize = true;
+            this.labelPatientInfo.Location = new System.Drawing.Point(12, 29);
+            this.labelPatientInfo.Name = "labelPatientInfo";
+            this.labelPatientInfo.Size = new System.Drawing.Size(318, 13);
+            this.labelPatientInfo.TabIndex = 0;
+            this.labelPatientInfo.Text = "Пациент ФАМИЛИЯ ИМЯ ОТЧЕСТВО, ДД.ММ.ГГГГ, СНИЛС";
             // 
             // groupBox3
             // 
@@ -290,18 +302,6 @@
             this.button7.Text = "Сохранить";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // linkLabelEmailSettings
-            // 
-            this.linkLabelEmailSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabelEmailSettings.AutoSize = true;
-            this.linkLabelEmailSettings.Location = new System.Drawing.Point(120, 420);
-            this.linkLabelEmailSettings.Name = "linkLabelEmailSettings";
-            this.linkLabelEmailSettings.Size = new System.Drawing.Size(163, 13);
-            this.linkLabelEmailSettings.TabIndex = 4;
-            this.linkLabelEmailSettings.TabStop = true;
-            this.linkLabelEmailSettings.Text = "Настройки электронной почты";
-            this.linkLabelEmailSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEmailSettings_LinkClicked);
-            // 
             // timerBeforeRequest
             // 
             this.timerBeforeRequest.Interval = 2000;
@@ -344,7 +344,7 @@
         private System.Windows.Forms.TextBox textBoxMailTo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonShowReport;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelPatientInfo;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxQuery;

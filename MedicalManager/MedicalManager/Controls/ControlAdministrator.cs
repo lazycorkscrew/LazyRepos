@@ -66,7 +66,6 @@ namespace MedicalManager.Controls
             {
                 bool employeeRejected = LogicProvider.Logic.RejectRegistrationRequest((listBoxRequests.SelectedItem as EmployeeInfo).Id, Properties.Settings.Default.login, LogicProvider.Logic.GetMD5Hash(Properties.Settings.Default.password));
                 message = (employeeRejected ? "Заявка успешно отклонена." : "Не удалось найти данную заявку.");
-                MessageBox.Show(message, "Уведомление");
                 listBoxRequests.DataSource = LogicProvider.Logic.GetRegistrationRequests(Properties.Settings.Default.login, LogicProvider.Logic.GetMD5Hash(Properties.Settings.Default.password));
             }
 

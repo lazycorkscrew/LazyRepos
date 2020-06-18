@@ -67,5 +67,7 @@ namespace MedicalManager.IDAC
         Employee GetEmployeeById(int employeeId);
 
         bool DeleteEmployee(string login, string password, int employeeId);
+
+        IEnumerable<AnalysisType> GetAnalysesByDiseases(IEnumerable<int> diseaseIds);
     }
 }

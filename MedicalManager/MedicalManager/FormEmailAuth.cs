@@ -38,7 +38,14 @@ namespace MedicalManager
                     Password = textBoxPassword.Text,
                     EnableSSL = checkBoxEnableSSL.Checked
 
-                });;
+                });
+
+            string message = (settingsSaved ? "Настройки электронной почты успешно сохранены." : "Не удалось сохранить настройки электронной почты. Обратитесь к администратору.");
+            MessageBox.Show(message, "Уведомление");
+            if(settingsSaved)
+            {
+                Close();
+            }
         }
     }
 }

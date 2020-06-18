@@ -24,6 +24,11 @@ namespace MedicalManager
             bool connectionStringChanged = LogicProvider.Logic.SetDBConnectionString(textBoxConnectionString.Text);
             string message = (connectionStringChanged ? "Строка подключения успешно изменена." : "Не удалось изменить строку подключения.");
             MessageBox.Show(message, "Уведомление");
+
+            if(connectionStringChanged)
+            {
+                Close();
+            }
         }
     }
 }

@@ -33,10 +33,10 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.buttonSaveEmailSettings = new System.Windows.Forms.Button();
             this.checkBoxEnableSSL = new System.Windows.Forms.CheckBox();
+            this.buttonSaveEmailSettings = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDownPort = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1.SuspendLayout();
@@ -107,37 +107,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Хост";
             // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Email адрес";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Пароль";
-            // 
-            // buttonSaveEmailSettings
-            // 
-            this.buttonSaveEmailSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSaveEmailSettings.Location = new System.Drawing.Point(209, 127);
-            this.buttonSaveEmailSettings.Name = "buttonSaveEmailSettings";
-            this.buttonSaveEmailSettings.Size = new System.Drawing.Size(201, 26);
-            this.buttonSaveEmailSettings.TabIndex = 8;
-            this.buttonSaveEmailSettings.Text = "Сохранить";
-            this.buttonSaveEmailSettings.UseVisualStyleBackColor = true;
-            this.buttonSaveEmailSettings.Click += new System.EventHandler(this.buttonSaveEmailSettings_Click);
-            // 
             // checkBoxEnableSSL
             // 
             this.checkBoxEnableSSL.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -150,6 +119,37 @@
             this.checkBoxEnableSSL.TabIndex = 7;
             this.checkBoxEnableSSL.Text = "Включить SSL";
             this.checkBoxEnableSSL.UseVisualStyleBackColor = true;
+            // 
+            // buttonSaveEmailSettings
+            // 
+            this.buttonSaveEmailSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSaveEmailSettings.Location = new System.Drawing.Point(209, 127);
+            this.buttonSaveEmailSettings.Name = "buttonSaveEmailSettings";
+            this.buttonSaveEmailSettings.Size = new System.Drawing.Size(201, 26);
+            this.buttonSaveEmailSettings.TabIndex = 8;
+            this.buttonSaveEmailSettings.Text = "Сохранить";
+            this.buttonSaveEmailSettings.UseVisualStyleBackColor = true;
+            this.buttonSaveEmailSettings.Click += new System.EventHandler(this.buttonSaveEmailSettings_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(80, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Пароль";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(70, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Email адрес";
             // 
             // label4
             // 
